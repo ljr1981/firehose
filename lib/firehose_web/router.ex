@@ -21,9 +21,11 @@ defmodule FirehoseWeb.Router do
   end
 
   # Other scopes may use custom stacks.
+  # LJR: Uncommented the gen'd code below.
   scope "/api", FirehoseWeb do
     pipe_through :api
-    get "/roll", RollController, :index
+    get "/roll", RollController, :index # Added this route
+                                        # See RollController
   end
 
   # Enables LiveDashboard only for development
