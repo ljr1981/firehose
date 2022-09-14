@@ -9,7 +9,7 @@ defmodule FirehoseWeb.RollView do
     %{die: die, value: num}
   end
 
-  def render("roll.json", %{roll: %{value: num}}) when is_integer(num) do
+  def render("roll.json", %{roll: %{value: num}}) when is_integer(num) and num > 0 do
     %{value: num}
   end
 
