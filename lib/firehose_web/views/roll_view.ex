@@ -1,9 +1,20 @@
 defmodule FirehoseWeb.RollView do
   use FirehoseWeb, :view
 
-  # Ref RollController def index
-  #
-  def render("index.json", %{roll: num}) when is_integer(num) do
-    %{status: "ok", roll: num}
+  def render("index.json", %{roll: roll}) do
+    %{data: render_one(roll, __MODULE__, "roll.json")}
+  end
+
+  def render("roll.json", %{roll: %{die: die, value: num}}) when is_integer(num) do
+    %{die: die, value: num}
+  end
+
+  def render("roll.json", %{roll: %{value: num}}) when is_integer(num) do
+    %{value: num}
+  end
+
+  def render("show.json", %{rolls: rolls}) do
+    rolls |> IO.inspect(label: "rolls")
+    %{data: render_many(rolls, __MODULE__, "roll.json")}
   end
 end
