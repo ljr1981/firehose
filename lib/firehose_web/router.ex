@@ -26,6 +26,13 @@ defmodule FirehoseWeb.Router do
     pipe_through :api
     get "/roll", RollController, :index # Added this route
     get "/roll/:num_dice", RollController, :show
+    get "/datetime", DatetimeController, :show
+    get "/freelist", FreelistController, :freelist_index
+    get "/catfacts", FreelistController, :catfacts_index
+    get "/coindesk", FreelistController, :coindesk_index
+    get "/agify/:name", FreelistController, :agify_index
+    get "/joke", FreelistController, :joke_show
+    get "/rnduser", FreelistController, :rnd_user
   end
 
   # Enables LiveDashboard only for development
